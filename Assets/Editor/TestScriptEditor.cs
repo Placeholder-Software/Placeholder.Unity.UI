@@ -17,70 +17,80 @@ namespace Assets.Editor
         public TestScriptEditor()
             : base(
                 new ImageBanner("dissonance_logo"),
-                new BasicComponentSection(
+                new BasicSection(
                     new GUIContent("Section 1"),
-                    new SingleProperty("A"),
-                    new SingleProperty("B"),
-                    new SingleProperty("I"),
-                    new SingleProperty("J")
+                    new ComponentList(
+                        new SingleProperty("A"),
+                        new SingleProperty("B"),
+                        new SingleProperty("I"),
+                        new SingleProperty("J")
+                    )
                 ) {
-                    HeaderUrl = "https://example.com",
+                    HeaderUrl = "https://example.com"
                 },
-                new FoldoutComponentSection(
+                new FoldoutSection(
                     new GUIContent("Section 2"),
-                    new ComponentList(Color.cyan, new GUIContent("Foldout Section Title")) {
-                        new SingleProperty("A"),
-                        new SingleProperty("C"),
-                        new SingleProperty("D")
-                    },
-                    new ComponentList(foldout: new GUIContent("Foldout Section Title 2")) {
-                        new SingleProperty("A"),
-                        new SingleProperty("C"),
-                        new SingleProperty("D")
-                    },
-                    new ExceptionThrow(),
-                    new ComponentList(Color.red) {
-                        new ComponentList(Color.green) {
-                            new SingleProperty("E"),
-                            new SingleProperty("G")
+                    new ComponentList {
+                        new ComponentList(Color.cyan, new GUIContent("Foldout Section Title")) {
+                            new SingleProperty("A"),
+                            new SingleProperty("C"),
+                            new SingleProperty("D")
                         },
-                        new SingleProperty("H")
+                        new ComponentList(foldout: new GUIContent("Foldout Section Title 2")) {
+                            new SingleProperty("A"),
+                            new SingleProperty("C"),
+                            new SingleProperty("D")
+                        },
+                        new ExceptionThrow(),
+                        new ComponentList(Color.red) {
+                            new ComponentList(Color.green) {
+                                new SingleProperty("E"),
+                                new SingleProperty("G")
+                            },
+                            new SingleProperty("H")
+                        }
                     }
                 ) {
                     HeaderMenu = new DemoGenericMenu(),
                     HeaderUrl = "https://example.com",
                 },
-                new FoldoutComponentSection(
+                new FoldoutSection(
                     new GUIContent("Section 3"),
-                    new SingleProperty("A"),
-                    new SingleProperty("F")
+                    new ComponentList {
+                        new SingleProperty("A"),
+                        new SingleProperty("F")
+                    }
                 ),
-                new ToggleComponentSection(
+                new ToggleSection(
                     new GUIContent("Section 4"),
                     "Section4Enabled",
-                    ToggleType.Tick,
-                    new SingleProperty("A"),
-                    new InfoBoxComponent("The quick brown fox may jump over the lazy dog", MessageType.Warning),
-                    new SingleProperty("E")
+                    new ComponentList {
+                        new SingleProperty("A"),
+                        new InfoBoxComponent("The quick brown fox may jump over the lazy dog", MessageType.Warning),
+                        new SingleProperty("E")
+                    }
                 ),
-                new ToggleComponentSection(
+                new ToggleSection(
                     new GUIContent("Muted Section"),
                     "MuteSection",
-                    ToggleType.Mute,
                     new SingleProperty("E")
-                ),
-                new ToggleComponentSection(
+                ) {
+                    ToggleType = ToggleType.Mute
+                },
+                new ToggleSection(
                     new GUIContent("Bypass Section"),
                     "BypassSection",
-                    ToggleType.Bypass,
                     new SingleProperty("E")
-                ),
-                new ToggleComponentSection(
+                ) {
+                    ToggleType = ToggleType.Bypass
+                },
+                new ToggleSection(
                     new GUIContent("Solo Section"),
                     "SoloSection",
-                    ToggleType.Solo,
                     new SingleProperty("E")
-                ),
+                ) {
+                    ToggleType = ToggleType.Solo
+                },
                 new DefaultInspectorSection()
             )
         {

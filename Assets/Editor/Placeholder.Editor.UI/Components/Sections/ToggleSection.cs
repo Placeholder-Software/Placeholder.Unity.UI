@@ -1,11 +1,12 @@
 ﻿using Assets.Editor.Placeholder.Editor.UI.Helpers;
 using Assets.Editor.Placeholder.Editor.UI.Style;
+using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Editor.Placeholder.Editor.UI.Components.Sections
 {
-    public abstract class BaseToggleSection
+    public class ToggleSection
         : BaseSection
     {
         private readonly string _enabledPropertyName;
@@ -17,16 +18,12 @@ namespace Assets.Editor.Placeholder.Editor.UI.Components.Sections
             set => _enabled.boolValue = value;
         }
 
-        private ToggleType _type;
-        protected virtual ToggleType ToggleType
-        {
-            get => _type;
-            set => _type = value; }
+        public ToggleType ToggleType { get; set; } = ToggleType.Tick;
 
-        protected BaseToggleSection(string enabledPropertyName, ToggleType toggle = ToggleType.Tick)
+        public ToggleSection([NotNull] GUIContent title, string enabledPropertyName, IComponent component)
+            : base(title, component)
         {
             _enabledPropertyName = enabledPropertyName;
-            _type = toggle;
         }
 
         public override void OnEnable(SerializedObject target)

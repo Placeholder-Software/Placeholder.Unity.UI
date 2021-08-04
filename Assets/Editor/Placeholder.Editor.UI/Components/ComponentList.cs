@@ -24,6 +24,11 @@ namespace Assets.Editor.Placeholder.Editor.UI.Components
 
         public virtual bool IsVisible => true;
 
+        public ComponentList([NotNull] params IComponent[] components)
+            : this(null, null, components)
+        {
+        }
+
         public ComponentList(Color? strip = null, [CanBeNull] GUIContent foldout = null, [NotNull] params IComponent[] components)
         {
             _strip = strip;

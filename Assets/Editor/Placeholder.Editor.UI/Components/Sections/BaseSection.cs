@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Assets.Editor.Placeholder.Editor.UI.Components.Addons.GenericMenu;
 using Assets.Editor.Placeholder.Editor.UI.Components.Addons.Validation;
 using Assets.Editor.Placeholder.Editor.UI.Style;
@@ -14,12 +15,26 @@ namespace Assets.Editor.Placeholder.Editor.UI.Components.Sections
     public abstract class BaseSection
         : IComponent
     {
+        private readonly IComponent _root;
+
+        /// <summary>
+        /// Indicates if this section is expanded (i.e. child components should be drawn)
+        /// </summary>
         public virtual bool Expanded { get; set; }
 
+        /// <summary>
+        /// Indicates if this section is Enabled (i.e. if child components should be interactible)
+        /// </summary>
         protected abstract bool Enabled { get; set; }
 
-        [NotNull] protected abstract GUIContent Title { get; }
+        /// <summary>
+        /// Get the title of this section
+        /// </summary>
+        [NotNull] public GUIContent Title { get; set; }
 
+        /// <summary>
+        /// Get the object which this section is editing
+        /// </summary>
         protected SerializedObject Target { get; private set; }
 
         public virtual bool IsVisible => true;
@@ -28,9 +43,16 @@ namespace Assets.Editor.Placeholder.Editor.UI.Components.Sections
         [CanBeNull] public string HeaderUrl { get; set; }
         [CanBeNull] public IValidation Validation { get; set; } = new AttributeValidation();
 
+        protected BaseSection([NotNull] GUIContent title, IComponent root)
+        {
+            Title = title;
+            _root = root;
+        }
+
         public virtual void OnEnable(SerializedObject target)
         {
             Target = target;
+            _root.OnEnable(target);
         }
 
         public void Draw()
@@ -51,7 +73,10 @@ namespace Assets.Editor.Placeholder.Editor.UI.Components.Sections
             }
         }
 
-        public abstract IEnumerable<SerializedProperty> GetChildProperties();
+        public IEnumerable<SerializedProperty> GetChildProperties()
+        {
+            return _root.GetChildProperties();
+        }
 
         /// <summary>
         /// Draw the header for this section
@@ -63,6 +88,9 @@ namespace Assets.Editor.Placeholder.Editor.UI.Components.Sections
         /// <returns>Return whether the rest of the section content should be drawn</returns>
         protected abstract bool DrawHeader([NotNull] GUIContent title, [CanBeNull] GenericMenu menu, [CanBeNull] string helpUrl, [CanBeNull] string errorMessage);
 
-        protected abstract void DrawContent();
+        protected virtual void DrawContent()
+        {
+            _root.Draw();
+        }
     }
 }

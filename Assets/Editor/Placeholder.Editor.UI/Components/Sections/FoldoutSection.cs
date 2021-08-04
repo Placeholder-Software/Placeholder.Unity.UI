@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Assets.Editor.Placeholder.Editor.UI.Components.Sections
 {
-    public abstract class BaseFoldoutSection
+    public class FoldoutSection
         : BaseSection
     {
         [CanBeNull] private readonly string _expandedPropertyName;
@@ -31,7 +31,8 @@ namespace Assets.Editor.Placeholder.Editor.UI.Components.Sections
             set => throw new NotSupportedException();
         }
 
-        protected BaseFoldoutSection([CanBeNull] string expandedPropertyName = null)
+        public FoldoutSection([NotNull] GUIContent title, IComponent component, [CanBeNull] string expandedPropertyName = null)
+            : base(title, component)
         {
             _expandedPropertyName = expandedPropertyName;
         }
