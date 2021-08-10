@@ -7,7 +7,7 @@ namespace Assets.Editor.Placeholder.Editor.UI.Components
     /// <summary>
     /// Displays a single SerializableProperty
     /// </summary>
-    public class SingleProperty
+    public class Property
         : IComponent
     {
         private readonly string _name;
@@ -15,7 +15,7 @@ namespace Assets.Editor.Placeholder.Editor.UI.Components
 
         public bool IsVisible => true;
 
-        public SingleProperty(string name)
+        public Property(string name)
         {
             _name = name;
         }

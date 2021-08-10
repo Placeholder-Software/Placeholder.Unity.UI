@@ -8,6 +8,6 @@ namespace Assets.Editor.Placeholder.Editor.UI.Components.Addons.GenericMenu
     /// </summary>
     public interface IGenericMenu
     {
-        [CanBeNull] UnityEditor.GenericMenu TryGetMenu(SerializedObject target);
+        [CanBeNull] UnityEditor.GenericMenu TryGetMenu(SerializedObject target, IComponent parent);
     }
 }

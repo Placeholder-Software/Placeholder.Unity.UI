@@ -5,6 +5,15 @@ using Validators;
 public class TestScript
     : MonoBehaviour
 {
+    public enum SomeOptions
+    {
+        TheFirst,
+        TheSecond,
+        NotTheFifth,
+        NotTheFifthEither,
+        Five,
+    }
+
     public bool Section2Collapsed;
     public bool Section3Collapsed;
     public bool Section4Enabled;
@@ -26,7 +35,13 @@ public class TestScript
     public GameObject D;
 
     [RequiredNotNull(HighlightColor.Warn, HighlightColor.OkGreen)]
-    public GameObject E;
+    public GameObject E1;
+
+    [RequiredNotNull(HighlightColor.Warn, HighlightColor.OkGreen)]
+    public GameObject E2;
+
+    [RequiredNotNull(HighlightColor.Warn, HighlightColor.OkGreen)]
+    public GameObject E3;
 
     [SerializeField, RequiredNotNull(HighlightColor.Warn)]
     public GameObject[] F;
@@ -42,5 +57,8 @@ public class TestScript
 
     [IsEven]
     public float J;
+
+    [SerializeField]
+    public SomeOptions K;
 }
 

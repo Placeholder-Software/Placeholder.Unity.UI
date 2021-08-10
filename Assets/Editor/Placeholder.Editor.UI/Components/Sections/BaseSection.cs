@@ -61,7 +61,7 @@ namespace Assets.Editor.Placeholder.Editor.UI.Components.Sections
             {
                 Expanded = DrawHeader(
                     Title,
-                    HeaderMenu?.TryGetMenu(Target),
+                    HeaderMenu?.TryGetMenu(Target, this),
                     HeaderUrl,
                     Validation?.TryGetErrorMessage(Target, this)
                 );
