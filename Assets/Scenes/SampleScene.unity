@@ -245,7 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Section2Collapsed: 0
   Section3Collapsed: 1
-  Section4Enabled: 1
+  Section4Enabled: 0
   MuteSection: 0
   SoloSection: 0
   BypassSection: 0

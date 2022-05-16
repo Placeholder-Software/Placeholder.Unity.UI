@@ -1,6 +1,6 @@
-﻿using PropertyDrawers;
+﻿using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Core.PropertyDrawers;
+using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Core.Validators;
 using UnityEngine;
-using Validators;
 
 public class TestScript
     : MonoBehaviour

@@ -1,0 +1,17 @@
+{
+    "name": "Placeholder.Editor.UI.Editor",
+    "references": [
+        "GUID:44fce5119b5475f47abee7b97dd9cfbf"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
