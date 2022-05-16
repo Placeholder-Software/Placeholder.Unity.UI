@@ -15,7 +15,7 @@ namespace Assets.Editor.Placeholder.Editor.UI.PropertyDrawers
             var field = (RequiredNotNullAttribute)attribute;
 
             var c = property.objectReferenceValue == null
-                ? field.ErrorColor
+                ? field.Error
                 : field.OkColor;
 
             using (new ColorScope(c.ToColor()))

@@ -28,6 +28,19 @@ namespace Assets.Editor
                 ) {
                     HeaderUrl = "https://example.com",
                 },
+                new FoldoutSection(new GUIContent("Nested Parent"),
+                    new ComponentList(
+                        new FoldoutSection(new GUIContent("Nested 1"),
+                            new Property("A")
+                        ),
+                        new FoldoutSection(new GUIContent("Nested 2"),
+                            new Property("A")
+                        ),
+                        new FoldoutSection(new GUIContent("Nested 3"),
+                            new Property("A")
+                        )
+                    )
+                ),
                 new FoldoutSection(
                     new GUIContent("Section 2"),
                     new ComponentList {
@@ -108,7 +121,7 @@ namespace Assets.Editor
                 public float B;
             }
 
-            [NotNull] public override GenericMenu TryGetMenu(SerializedObject target, IComponent parent)
+            public override GenericMenu TryGetMenu(SerializedObject target, IComponent parent)
             {
                 var g = base.TryGetMenu(target, parent);
                 g.AddSeparator("");

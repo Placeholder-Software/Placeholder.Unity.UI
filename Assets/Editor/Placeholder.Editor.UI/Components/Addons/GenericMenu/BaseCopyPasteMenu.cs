@@ -8,7 +8,7 @@ namespace Assets.Editor.Placeholder.Editor.UI.Components.Addons.GenericMenu
         : IGenericMenu
         where T : struct
     {
-        public virtual UnityEditor.GenericMenu TryGetMenu(SerializedObject target, IComponent parent)
+        [NotNull] public virtual UnityEditor.GenericMenu TryGetMenu(SerializedObject target, IComponent parent)
         {
             var g = new UnityEditor.GenericMenu();
 

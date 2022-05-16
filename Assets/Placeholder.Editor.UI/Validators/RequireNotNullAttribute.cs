@@ -9,19 +9,19 @@ namespace Validators
     public class RequiredNotNullAttribute
         : BaseValidationAttribute
     {
-        public HighlightColor ErrorColor { get; }
-        public HighlightColor OkColor { get; }
+        public Highlight Error { get; }
+        public Highlight OkColor { get; }
         public bool Validate { get; }
 
-        public RequiredNotNullAttribute(HighlightColor err = HighlightColor.Error, HighlightColor ok = HighlightColor.None, bool validate = true)
+        public RequiredNotNullAttribute(Highlight err = Highlight.Error, Highlight ok = Highlight.None, bool validate = true)
         {
-            ErrorColor = err;
+            Error = err;
             OkColor = ok;
             Validate = validate;
         }
     }
 
-    public enum HighlightColor
+    public enum Highlight
     {
         None,
         Error,
@@ -30,21 +30,21 @@ namespace Validators
         OkBlue,
     }
 
-    public static class HighlightColorExtensions
+    public static class HighlightExtensions
     {
-        public static Color ToColor(this HighlightColor highlight)
+        public static Color ToColor(this Highlight highlight)
         {
             switch (highlight)
             {
-                case HighlightColor.None:
+                case Highlight.None:
                     return GUI.color;
-                case HighlightColor.Error:
+                case Highlight.Error:
                     return Color.red;
-                case HighlightColor.OkGreen:
+                case Highlight.OkGreen:
                     return Color.green;
-                case HighlightColor.OkBlue:
+                case Highlight.OkBlue:
                     return Color.blue;
-                case HighlightColor.Warn:
+                case Highlight.Warn:
                     return Color.yellow;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(highlight), highlight, null);

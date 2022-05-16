@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Assets.Editor.Placeholder.Editor.UI.Components.Addons.GenericMenu;
 using Assets.Editor.Placeholder.Editor.UI.Components.Addons.Validation;
 using Assets.Editor.Placeholder.Editor.UI.Style;

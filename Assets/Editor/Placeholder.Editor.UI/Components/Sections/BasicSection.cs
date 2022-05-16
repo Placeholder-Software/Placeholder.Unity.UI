@@ -2,6 +2,7 @@
 using Assets.Editor.Placeholder.Editor.UI.Helpers;
 using JetBrains.Annotations;
 using UnityEditor;
+using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
 namespace Assets.Editor.Placeholder.Editor.UI.Components.Sections

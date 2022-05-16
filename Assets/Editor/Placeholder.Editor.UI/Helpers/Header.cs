@@ -34,12 +34,12 @@ namespace Assets.Editor.Placeholder.Editor.UI.Helpers
             // Calculate the rectangles for the two icons of the right hand side
             const float iconMarginY = (barHeight - iconSize) / 4;
             var detailRect = new Rect(rect.x + rect.width - iconSize - 5f, rect.y + iconMarginY, iconSize, iconSize);
-            var helpRect = new Rect(rect.x + rect.width - iconSize - 5f, rect.y + iconMarginY, iconSize, iconSize);
+            var helpRect = detailRect;
 
             // Display the icon for a generic menu dropdown on the right
             if (options.DetailMenu != null)
             {
-                // Bump the help icon over to the left
+                // Bump the other icons over to the left
                 helpRect.x -= detailRect.width + 2;
 
                 GUI.DrawTexture(detailRect, Styles.paneOptionsIcon);

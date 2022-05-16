@@ -28,22 +28,22 @@ public class TestScript
     [IsEven]
     public float B;
 
-    [RequiredNotNull(HighlightColor.Error)]
+    [RequiredNotNull(Highlight.Error)]
     public GameObject C;
 
-    [RequiredNotNull(HighlightColor.Warn)]
+    [RequiredNotNull(Highlight.Warn)]
     public GameObject D;
 
-    [RequiredNotNull(HighlightColor.Warn, HighlightColor.OkGreen)]
+    [RequiredNotNull(Highlight.Warn, Highlight.OkGreen)]
     public GameObject E1;
 
-    [RequiredNotNull(HighlightColor.Warn, HighlightColor.OkGreen)]
+    [RequiredNotNull(Highlight.Warn, Highlight.OkGreen)]
     public GameObject E2;
 
-    [RequiredNotNull(HighlightColor.Warn, HighlightColor.OkGreen)]
+    [RequiredNotNull(Highlight.Warn, Highlight.OkGreen)]
     public GameObject E3;
 
-    [SerializeField, RequiredNotNull(HighlightColor.Warn)]
+    [SerializeField, RequiredNotNull(Highlight.Warn)]
     public GameObject[] F;
 
     [MinMax(5, 10, true)]
