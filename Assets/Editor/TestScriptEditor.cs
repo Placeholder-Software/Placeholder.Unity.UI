@@ -1,4 +1,5 @@
-﻿using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor;
+﻿using System.Collections.Generic;
+using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor;
 using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components;
 using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components.Addons.GenericMenu;
 using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components.Sections;
@@ -70,7 +71,16 @@ public class TestScriptEditor
                 new ComponentList {
                     new Property("A"),
                     new Property("F"),
-                    new Property("K"),
+                    new ComponentList(Color.gray,
+                        new Property("K"),
+                        new PropertySelector("K", new Dictionary<int, IComponent>
+                        {
+                            { (int)TestScript.SomeOptions.First, new Property("OptionFirst") },
+                            { (int)TestScript.SomeOptions.Second, new Property("OptionSecond") },
+                            { (int)TestScript.SomeOptions.Third, new Property("OptionThird") },
+                            { (int)TestScript.SomeOptions.Fourth, new Property("OptionFourth") },
+                        })
+                    )
                 }
             ),
             new ToggleSection(

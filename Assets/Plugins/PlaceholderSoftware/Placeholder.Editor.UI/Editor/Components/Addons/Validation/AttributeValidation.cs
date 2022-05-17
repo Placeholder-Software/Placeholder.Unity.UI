@@ -28,29 +28,29 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
         {
             [NotNull] private readonly SerializedObject _target;
             [NotNull] private readonly IComponent _parent;
-            [NotNull] private Dictionary<Type, IPropertyValidator> _validators;
-
-            private readonly IReadOnlyList<(SerializedProperty property, IValidationAttribute attribute)> _attributes;
 
             public Cache([NotNull] SerializedObject target, [NotNull] IComponent parent)
             {
                 _target = target;
                 _parent = parent;
+            }
 
+            private IReadOnlyList<(SerializedProperty property, IValidationAttribute attribute)> GetAttributes([NotNull] IComponent parent)
+            {
                 var attrs = from property in parent.GetChildProperties()
-                            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
-                            where property != null
                             from attribute in property.GetCustomAttributes<IValidationAttribute>()
                             select (property, attribute);
-                _attributes = attrs.ToList();
+                return attrs.ToList();
             }
 
             [CanBeNull] public string TryGetErrorMessage()
             {
+                var attrs = GetAttributes(_parent);
+
                 // Find all errors from attributes
                 var count = 0;
                 string error = null;
-                foreach (var (prop, attr) in _attributes)
+                foreach (var (prop, attr) in attrs)
                 {
                     var val = ValidatorLocator.FindValidator(attr.GetType());
 
@@ -64,15 +64,17 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
                         error = err;
                 }
 
-                if (count == 0)
-                    return null;
-                if (count == 1)
-                    return error;
-
-                if (count == 2)
-                    return $"{error}\n(1 other error)";
-
-                return $"{error}\n({count - 1} other errors)";
+                switch (count)
+                {
+                    case 0:
+                        return null;
+                    case 1:
+                        return error;
+                    case 2:
+                        return $"{error}\n(1 other error)";
+                    default:
+                        return $"{error}\n({count - 1} other errors)";
+                }
             }
 
             public bool IsStale([NotNull] SerializedObject target, [NotNull] IComponent parent)

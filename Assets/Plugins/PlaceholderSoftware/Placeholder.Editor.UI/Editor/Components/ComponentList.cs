@@ -29,6 +29,11 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
         {
         }
 
+        public ComponentList(Color? strip = null, [NotNull] params IComponent[] components)
+            : this(strip, null, components)
+        {
+        }
+
         public ComponentList(Color? strip = null, [CanBeNull] GUIContent foldout = null, [NotNull] params IComponent[] components)
         {
             _strip = strip;

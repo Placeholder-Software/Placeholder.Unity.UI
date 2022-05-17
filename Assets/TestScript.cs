@@ -7,11 +7,11 @@ public class TestScript
 {
     public enum SomeOptions
     {
-        TheFirst,
-        TheSecond,
-        NotTheFifth,
-        NotTheFifthEither,
-        Five,
+        First,
+        Second,
+        Third,
+        Fourth,
+        Fifth,
     }
 
     public bool Section2Collapsed;
@@ -60,5 +60,10 @@ public class TestScript
 
     [SerializeField]
     public SomeOptions K;
+
+    [SerializeField, IsEven] public int OptionFirst;
+    [SerializeField] public float OptionSecond;
+    [SerializeField, RequiredNotNull] public GameObject OptionThird;
+    [SerializeField, RequiredNotNull] public Transform OptionFourth;
 }
 

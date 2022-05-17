@@ -249,22 +249,26 @@ MonoBehaviour:
   MuteSection: 0
   SoloSection: 0
   BypassSection: 0
-  A: 6.52
+  A: 6.27
   B: 20
   C: {fileID: 301777294}
   D: {fileID: 301777294}
-  E1: {fileID: 0}
+  E1: {fileID: 228305535}
   E2: {fileID: 0}
   E3: {fileID: 0}
   F:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 228305535}
+  - {fileID: 228305535}
+  - {fileID: 228305535}
   G: {x: 6.195155, y: 8.8060465}
   H: {x: 5.8583717, y: 8.950638}
   I: 4
   J: 2
-  K: 2
+  K: 0
+  OptionFirst: 2
+  OptionSecond: 1
+  OptionThird: {fileID: 0}
+  OptionFourth: {fileID: 0}
 --- !u!4 &228305537
 Transform:
   m_ObjectHideFlags: 0
