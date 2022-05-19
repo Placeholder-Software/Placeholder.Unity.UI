@@ -16,6 +16,7 @@ public class TestScriptEditor
     public TestScriptEditor()
         : base(
             new ImageBanner("dissonance_logo"),
+            new PlaymodeSection(new InfoBoxComponent("Playmode!", MessageType.Error)),
             new BasicSection(
                 new GUIContent("Section 1"),
                 new ComponentList(
