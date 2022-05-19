@@ -28,6 +28,7 @@ public class TestScriptEditor
             ) {
                 HeaderUrl = "https://example.com",
             },
+            new DisabledSection("MuteSection", new Property("B")),
             new FoldoutSection(new GUIContent("Nested Parent"),
                 new ComponentList(
                     new FoldoutSection(new GUIContent("Nested 1"),
