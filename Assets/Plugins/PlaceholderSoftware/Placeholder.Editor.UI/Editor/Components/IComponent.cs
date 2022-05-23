@@ -15,6 +15,11 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
         bool IsVisible { get; }
 
         /// <summary>
+        /// Get if this component should be re-rendered every frame
+        /// </summary>
+        bool RequiresConstantRepaint { get; }
+
+        /// <summary>
         /// Called when this component is enabled
         /// </summary>
         /// <param name="target">The object which is being edited</param>

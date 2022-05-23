@@ -12,6 +12,7 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
         private readonly IComponent _child;
 
         public bool IsVisible => EditorApplication.isPlaying;
+        public bool RequiresConstantRepaint => _child.RequiresConstantRepaint;
 
         public PlaymodeSection(IComponent child)
         {

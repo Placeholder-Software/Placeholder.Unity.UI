@@ -14,6 +14,7 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
         private SerializedProperty _property;
 
         public bool IsVisible => true;
+        public bool RequiresConstantRepaint => false;
 
         public Property(string name)
         {

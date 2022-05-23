@@ -38,6 +38,8 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
 
         public virtual bool IsVisible => true;
 
+        public virtual bool RequiresConstantRepaint => _root.RequiresConstantRepaint;
+
         [CanBeNull] public IGenericMenu HeaderMenu { get; set; }
         [CanBeNull] public string HeaderUrl { get; set; }
         [CanBeNull] public IValidation Validation { get; set; } = new AttributeValidation();

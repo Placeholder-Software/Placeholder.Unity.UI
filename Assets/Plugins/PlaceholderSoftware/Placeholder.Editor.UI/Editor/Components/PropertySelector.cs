@@ -13,7 +13,8 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
         private readonly IReadOnlyDictionary<int, IComponent> _components;
 
         private SerializedProperty _discriminatorProperty;
-        
+
+        public bool RequiresConstantRepaint => GetCurrentComponent()?.RequiresConstantRepaint ?? false;
 
         public bool IsVisible => true;
 
@@ -33,14 +34,19 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
 
         public void Draw()
         {
+            GetCurrentComponent()?.Draw();
+        }
+
+        private IComponent GetCurrentComponent()
+        {
             if (_discriminatorProperty == null)
-                return;
+                return null;
 
             var value = _discriminatorProperty.intValue;
             if (!_components.TryGetValue(value, out var component))
-                return;
+                return null;
 
-            component.Draw();
+            return component;
         }
 
         public IEnumerable<SerializedProperty> GetChildProperties()

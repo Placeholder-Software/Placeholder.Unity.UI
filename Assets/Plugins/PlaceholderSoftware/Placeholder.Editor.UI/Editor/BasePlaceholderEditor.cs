@@ -21,6 +21,11 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor
             _root = root;
         }
 
+        public override bool RequiresConstantRepaint()
+        {
+            return _root.RequiresConstantRepaint;
+        }
+
         [UsedImplicitly]
         private void OnEnable()
         {

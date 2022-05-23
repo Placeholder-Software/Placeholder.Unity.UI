@@ -11,6 +11,7 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
         : IComponent
     {
         public bool IsVisible => true;
+        public bool RequiresConstantRepaint => false;
 
         public void OnEnable(SerializedObject target)
         {

@@ -15,6 +15,7 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
         private Texture2D _image;
 
         public bool IsVisible => true;
+        public bool RequiresConstantRepaint => false;
 
         public ImageBanner(string resourcePath)
         {

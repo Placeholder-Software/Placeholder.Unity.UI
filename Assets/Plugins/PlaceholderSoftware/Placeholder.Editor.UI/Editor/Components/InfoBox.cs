@@ -14,6 +14,7 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
         private readonly MessageType _type;
 
         public bool IsVisible => true;
+        public bool RequiresConstantRepaint => false;
 
         public InfoBoxComponent(string message, MessageType type)
         {

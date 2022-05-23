@@ -16,6 +16,7 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
         private SerializedProperty _control;
 
         public bool IsVisible => true;
+        public bool RequiresConstantRepaint => _child.RequiresConstantRepaint;
 
         public DisabledSection(string controlProperty, IComponent child)
         {

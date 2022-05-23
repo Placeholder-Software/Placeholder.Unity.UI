@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Helpers;
 using JetBrains.Annotations;
 using UnityEditor;
@@ -23,6 +24,8 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
         private bool DoFoldout => _foldout != null;
 
         public virtual bool IsVisible => true;
+
+        public bool RequiresConstantRepaint => _components.Any(a => a.RequiresConstantRepaint);
 
         public ComponentList([NotNull] params IComponent[] components)
             : this(null, null, components)
