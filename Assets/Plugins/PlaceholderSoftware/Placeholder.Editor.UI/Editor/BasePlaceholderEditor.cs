@@ -26,8 +26,17 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor
             return _root.RequiresConstantRepaint;
         }
 
+        /// <summary>
+        /// If this returns `true` the default inspector will be drawn
+        /// </summary>
+        /// <returns></returns>
+        protected virtual bool UseDefaultInspector()
+        {
+            return false;
+        }
+
         [UsedImplicitly]
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             _root.OnEnable(serializedObject);
         }
@@ -35,9 +44,16 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor
         [UsedImplicitly]
         public override void OnInspectorGUI()
         {
-            GUILayout.Space(4);
-            _root.Draw();
-            serializedObject.ApplyModifiedProperties();
+            if (UseDefaultInspector())
+            {
+                base.OnInspectorGUI();
+            }
+            else
+            {
+                GUILayout.Space(4);
+                _root.Draw();
+                serializedObject.ApplyModifiedProperties();
+            }
         }
     }
 }
