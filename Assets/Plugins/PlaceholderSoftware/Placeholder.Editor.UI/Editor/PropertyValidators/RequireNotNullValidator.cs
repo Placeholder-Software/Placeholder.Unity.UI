@@ -11,15 +11,15 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Proper
     {
         public string TryGetError(Attribute attribute, SerializedProperty property)
         {
-            return TryGetError(attribute, property, property.name);
+            return TryGetError(property, property.name);
         }
 
-        [CanBeNull] private string TryGetErrorArray(RequiredNotNullAttribute attr, [NotNull] SerializedProperty arrayProperty, string name)
+        [CanBeNull] private string TryGetErrorArray([NotNull] SerializedProperty arrayProperty, string name)
         {
             for (var i = 0; i < arrayProperty.arraySize; i++)
             {
                 var idx = arrayProperty.GetArrayElementAtIndex(i);
-                var err = TryGetError(attr, idx, $"{name}[{i}]");
+                var err = TryGetError(idx, $"{name}[{i}]");
                 if (err != null)
                     return err;
             }
@@ -27,17 +27,18 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Proper
             return null;
         }
 
-        [CanBeNull] public string TryGetError(Attribute attribute, SerializedProperty property, string name)
+        [CanBeNull] public string TryGetError(SerializedProperty property, string name)
         {
-            var attr = (RequiredNotNullAttribute)attribute;
-            if (!attr.Validate)
-                return null;
+            if (property.propertyType == SerializedPropertyType.String)
+                if (property.stringValue != null)
+                    return null;
 
             if (property.isArray)
-                return TryGetErrorArray(attr, property, name);
-
+                return TryGetErrorArray(property, name);
+            
             if (property.objectReferenceValue != null)
                 return null;
+            
 
             return $"`{name}` must not be null";
         }

@@ -23,7 +23,8 @@ public class TestScriptEditor
                     new Property("A"),
                     new Property("B"),
                     new Property("I"),
-                    new Property("J")
+                    new Property("J"),
+                    new Property("Str")
                 )
             ) {
                 HeaderUrl = "https://example.com",

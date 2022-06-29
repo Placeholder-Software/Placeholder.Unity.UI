@@ -14,12 +14,20 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Proper
         {
             var field = (RequiredNotNullAttribute)attribute;
 
-            var c = property.objectReferenceValue == null
-                ? field.Error
-                : field.OkColor;
+            var c = IsValid(property)
+                ? field.OkColor
+                : field.Error;
 
             using (new ColorScope(c.ToColor()))
                 EditorGUI.PropertyField(position, property, label);
+        }
+
+        private static bool IsValid(SerializedProperty property)
+        {
+            if (property.propertyType == SerializedPropertyType.String)
+                return property.stringValue != null;
+
+            return property.objectReferenceValue != null;
         }
     }
 }

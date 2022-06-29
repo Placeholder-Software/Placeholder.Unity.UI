@@ -28,6 +28,9 @@ public class TestScript
     [IsEven]
     public float B;
 
+    [RequireNotEmpty(Highlight.Error)]
+    public string Str;
+
     [RequiredNotNull(Highlight.Error)]
     public GameObject C;
 

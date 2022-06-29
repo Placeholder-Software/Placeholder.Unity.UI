@@ -250,7 +250,8 @@ MonoBehaviour:
   SoloSection: 0
   BypassSection: 0
   A: 6.27
-  B: 20
+  B: 22
+  Str: 
   C: {fileID: 0}
   D: {fileID: 301777294}
   E1: {fileID: 228305535}
