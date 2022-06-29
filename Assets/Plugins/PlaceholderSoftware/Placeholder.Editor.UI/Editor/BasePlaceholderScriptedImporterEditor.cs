@@ -53,10 +53,12 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor
             }
             else
             {
+                serializedObject.Update();
                 GUILayout.Space(4);
                 _root.Draw();
-                ApplyRevertGUI();
                 serializedObject.ApplyModifiedProperties();
+
+                ApplyRevertGUI();
             }
         }
     }
