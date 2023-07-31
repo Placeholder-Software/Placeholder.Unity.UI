@@ -1,7 +1,7 @@
 ﻿using JetBrains.Annotations;
 using UnityEditor;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components.Addons.GenericMenu
+namespace Placeholder.Editor.UI.Editor.Components.Addons.GenericMenu
 {
     /// <summary>
     /// Provides a generic menu to be drawn in another component

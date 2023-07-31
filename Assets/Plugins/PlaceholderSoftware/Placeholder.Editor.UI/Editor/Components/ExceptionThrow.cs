@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components
+namespace Placeholder.Editor.UI.Editor.Components
 {
     /// <summary>
     /// Throw an exception when this component is drawn

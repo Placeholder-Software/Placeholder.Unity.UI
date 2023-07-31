@@ -1,10 +1,10 @@
 ﻿using System;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Core.PropertyDrawers;
 using JetBrains.Annotations;
+using Placeholder.Editor.UI.Core.PropertyDrawers;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.PropertyDrawers
+namespace Placeholder.Editor.UI.Editor.PropertyDrawers
 {
     /// <summary>
     /// Draw a slider with two ends, to set a min and max value (in X/Y fields of a vector2)

@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Style
+namespace Placeholder.Editor.UI.Editor.Style
 {
     public static class Styles
     {

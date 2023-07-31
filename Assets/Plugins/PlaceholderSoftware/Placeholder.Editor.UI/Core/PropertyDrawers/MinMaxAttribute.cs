@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Core.PropertyDrawers
+namespace Placeholder.Editor.UI.Core.PropertyDrawers
 {
     /// <summary>
     /// Shows a range slider on the inspector, allowing the user to set min and max values.

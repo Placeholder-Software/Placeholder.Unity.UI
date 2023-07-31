@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿#nullable enable
+
+using System.Collections.Generic;
 using UnityEditor;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components
+namespace Placeholder.Editor.UI.Editor.Components
 {
     /// <summary>
     /// Show one single property from a set based on the value of descriminator property
@@ -12,7 +14,7 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
         private readonly string _discriminatorPropertyName;
         private readonly IReadOnlyDictionary<int, IComponent> _components;
 
-        private SerializedProperty _discriminatorProperty;
+        private SerializedProperty? _discriminatorProperty;
 
         public bool RequiresConstantRepaint => GetCurrentComponent()?.RequiresConstantRepaint ?? false;
 
@@ -37,7 +39,7 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
             GetCurrentComponent()?.Draw();
         }
 
-        private IComponent GetCurrentComponent()
+        private IComponent? GetCurrentComponent()
         {
             if (_discriminatorProperty == null)
                 return null;

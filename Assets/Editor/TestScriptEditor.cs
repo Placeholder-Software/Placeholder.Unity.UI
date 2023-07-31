@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components.Addons.GenericMenu;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components.Sections;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Style;
 using JetBrains.Annotations;
+using Placeholder.Editor.UI.Editor;
+using Placeholder.Editor.UI.Editor.Components;
+using Placeholder.Editor.UI.Editor.Components.Addons.GenericMenu;
+using Placeholder.Editor.UI.Editor.Components.Sections;
+using Placeholder.Editor.UI.Editor.Style;
 using UnityEditor;
 using UnityEngine;
 

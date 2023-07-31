@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEditor;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components.Sections
+namespace Placeholder.Editor.UI.Editor.Components.Sections
 {
     /// <summary>
     /// Only draws children in playmode

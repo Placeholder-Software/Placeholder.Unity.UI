@@ -1,26 +1,27 @@
-﻿using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Helpers;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Style;
-using JetBrains.Annotations;
+﻿#nullable enable
+
+using Placeholder.Editor.UI.Editor.Helpers;
+using Placeholder.Editor.UI.Editor.Style;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components.Sections
+namespace Placeholder.Editor.UI.Editor.Components.Sections
 {
     public class ToggleSection
         : BaseSection
     {
         private readonly string _enabledPropertyName;
-        private SerializedProperty _enabled;
+        private SerializedProperty? _enabled;
 
         protected override bool Enabled
         {
-            get => _enabled.boolValue;
-            set => _enabled.boolValue = value;
+            get => _enabled?.boolValue ?? false;
+            set => _enabled!.boolValue = value;
         }
 
         public ToggleType ToggleType { get; set; } = ToggleType.Tick;
 
-        public ToggleSection([NotNull] GUIContent title, string enabledPropertyName, IComponent component)
+        public ToggleSection(GUIContent title, string enabledPropertyName, IComponent component)
             : base(title, component)
         {
             _enabledPropertyName = enabledPropertyName;

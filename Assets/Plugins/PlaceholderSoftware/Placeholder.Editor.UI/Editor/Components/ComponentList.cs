@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Helpers;
 using JetBrains.Annotations;
+using Placeholder.Editor.UI.Editor.Helpers;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components
+namespace Placeholder.Editor.UI.Editor.Components
 {
     /// <summary>
     /// A list of components, drawn in order.
@@ -82,8 +82,7 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
                     }
                     catch (Exception e)
                     {
-                        using (new ColorScope(Color.red))
-                            EditorGUILayout.LabelField($"Exception: {e.Message}");
+                        Debug.LogError(e);
                     }
                 }
             }

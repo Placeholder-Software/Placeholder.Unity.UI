@@ -1,11 +1,11 @@
-﻿using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Core.Validators;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Helpers;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.PropertyValidators;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
+using Placeholder.Editor.UI.Core.Validators;
+using Placeholder.Editor.UI.Editor.Helpers;
+using Placeholder.Editor.UI.Editor.PropertyValidators;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.PropertyDrawers
+namespace Placeholder.Editor.UI.Editor.PropertyDrawers
 {
     [CustomPropertyDrawer(typeof(RequireNotEmptyAttribute))]
     public class RequiredNotEmptyDrawer

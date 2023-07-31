@@ -2,7 +2,7 @@
 using JetBrains.Annotations;
 using UnityEditor;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components
+namespace Placeholder.Editor.UI.Editor.Components
 {
     /// <summary>
     /// A single component of a user interface. May contain other components.

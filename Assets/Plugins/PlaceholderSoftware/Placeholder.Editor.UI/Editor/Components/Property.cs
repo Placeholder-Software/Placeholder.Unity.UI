@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿#nullable enable
+
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components
+namespace Placeholder.Editor.UI.Editor.Components
 {
     /// <summary>
     /// Displays a single SerializableProperty
@@ -11,14 +13,16 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
         : IComponent
     {
         private readonly string _name;
-        private SerializedProperty _property;
+        private readonly string? _label;
+        private SerializedProperty? _property;
 
         public bool IsVisible => true;
         public bool RequiresConstantRepaint => false;
 
-        public Property(string name)
+        public Property(string name, string? label = null)
         {
             _name = name;
+            _label = label;
         }
 
         public void OnEnable(SerializedObject target)
@@ -36,12 +40,18 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
                 GUI.color = saved;
             }
             else
-                EditorGUILayout.PropertyField(_property);
+            {
+                if (_label == null)
+                    EditorGUILayout.PropertyField(_property);
+                else
+                    EditorGUILayout.PropertyField(_property, new GUIContent(_label, _property.tooltip));
+            }
         }
 
         public IEnumerable<SerializedProperty> GetChildProperties()
         {
-            yield return _property;
+            if (_property != null)
+                yield return _property;
         }
     }
 }

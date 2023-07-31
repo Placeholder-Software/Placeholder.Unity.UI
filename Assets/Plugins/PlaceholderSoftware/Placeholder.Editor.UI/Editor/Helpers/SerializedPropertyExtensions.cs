@@ -5,7 +5,7 @@ using System.Reflection;
 using JetBrains.Annotations;
 using UnityEditor;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Helpers
+namespace Placeholder.Editor.UI.Editor.Helpers
 {
     public static class SerializedPropertyExtensions
     {

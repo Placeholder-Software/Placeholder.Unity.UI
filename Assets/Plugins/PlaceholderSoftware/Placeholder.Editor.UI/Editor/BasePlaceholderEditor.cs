@@ -1,8 +1,8 @@
-﻿using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
+using Placeholder.Editor.UI.Editor.Components;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor
+namespace Placeholder.Editor.UI.Editor
 {
     public class BasePlaceholderEditor
         : UnityEditor.Editor

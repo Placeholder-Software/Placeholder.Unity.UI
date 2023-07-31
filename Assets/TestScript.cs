@@ -1,5 +1,5 @@
-﻿using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Core.PropertyDrawers;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Core.Validators;
+﻿using Placeholder.Editor.UI.Core.PropertyDrawers;
+using Placeholder.Editor.UI.Core.Validators;
 using UnityEngine;
 
 public class TestScript

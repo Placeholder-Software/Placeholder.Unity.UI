@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components.Addons.GenericMenu;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components.Addons.Validation;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Style;
 using JetBrains.Annotations;
+using Placeholder.Editor.UI.Editor.Components.Addons.GenericMenu;
+using Placeholder.Editor.UI.Editor.Components.Addons.Validation;
+using Placeholder.Editor.UI.Editor.Style;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components.Sections
+namespace Placeholder.Editor.UI.Editor.Components.Sections
 {
     /// <summary>
     /// Base class for sections in a UI which can be enabled/disabled/expanded/collapsed

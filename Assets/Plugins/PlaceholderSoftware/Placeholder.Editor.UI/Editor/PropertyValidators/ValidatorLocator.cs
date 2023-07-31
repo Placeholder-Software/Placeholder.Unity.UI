@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using JetBrains.Annotations;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.PropertyValidators
+namespace Placeholder.Editor.UI.Editor.PropertyValidators
 {
     internal static class ValidatorLocator
     {

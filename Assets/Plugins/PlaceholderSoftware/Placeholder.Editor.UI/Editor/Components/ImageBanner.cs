@@ -1,9 +1,11 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components
+namespace Placeholder.Editor.UI.Editor.Components
 {
     /// <summary>
     /// Display a banner with an image
@@ -12,7 +14,7 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
         : IComponent
     {
         private readonly string _resourcePath;
-        private Texture2D _image;
+        private Texture2D? _image;
 
         public bool IsVisible => true;
         public bool RequiresConstantRepaint => false;

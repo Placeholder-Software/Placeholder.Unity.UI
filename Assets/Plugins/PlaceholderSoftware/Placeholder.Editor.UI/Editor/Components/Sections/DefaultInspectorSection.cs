@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components.Sections
+namespace Placeholder.Editor.UI.Editor.Components.Sections
 {
     /// <summary>
     /// A foldout section which draws the default Unity inspector within

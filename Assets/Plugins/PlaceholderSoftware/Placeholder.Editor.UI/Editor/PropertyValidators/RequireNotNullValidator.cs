@@ -1,9 +1,9 @@
 ﻿using System;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Core.Validators;
 using JetBrains.Annotations;
+using Placeholder.Editor.UI.Core.Validators;
 using UnityEditor;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.PropertyValidators
+namespace Placeholder.Editor.UI.Editor.PropertyValidators
 {
     [PropertyValidator(typeof(RequiredNotNullAttribute))]
     public class RequireNotNullValidator

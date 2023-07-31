@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components.Addons.GenericMenu
+namespace Placeholder.Editor.UI.Editor.Components.Addons.GenericMenu
 {
     public abstract class BaseCopyPasteMenu<T>
         : IGenericMenu

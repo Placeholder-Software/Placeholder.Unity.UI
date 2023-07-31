@@ -1,9 +1,10 @@
-﻿using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components;
+﻿using System;
 using JetBrains.Annotations;
-using UnityEditor.Experimental.AssetImporters;
+using Placeholder.Editor.UI.Editor.Components;
+using UnityEditor.AssetImporters;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor
+namespace Placeholder.Editor.UI.Editor
 {
     public class BasePlaceholderScriptedImporterEditor
         : ScriptedImporterEditor
@@ -39,7 +40,14 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor
         [UsedImplicitly]
         public override void OnEnable()
         {
-            _root.OnEnable(serializedObject);
+            try
+            {
+                _root.OnEnable(serializedObject);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
 
             base.OnEnable();
         }

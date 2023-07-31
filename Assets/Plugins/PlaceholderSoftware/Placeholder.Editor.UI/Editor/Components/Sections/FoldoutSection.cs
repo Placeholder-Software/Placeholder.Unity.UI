@@ -1,17 +1,18 @@
-﻿using System;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Helpers;
-using JetBrains.Annotations;
+﻿#nullable enable
+
+using System;
+using Placeholder.Editor.UI.Editor.Helpers;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components.Sections
+namespace Placeholder.Editor.UI.Editor.Components.Sections
 {
     public class FoldoutSection
         : BaseSection
     {
-        [CanBeNull] private readonly string _expandedPropertyName;
+        private readonly string? _expandedPropertyName;
         private bool _expandedField;
-        private SerializedProperty _expandedProperty;
+        private SerializedProperty? _expandedProperty;
 
         public override bool Expanded
         {
@@ -31,7 +32,7 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Compon
             set => throw new NotSupportedException();
         }
 
-        public FoldoutSection([NotNull] GUIContent title, IComponent component, [CanBeNull] string expandedPropertyName = null)
+        public FoldoutSection(GUIContent title, IComponent component, string? expandedPropertyName = null)
             : base(title, component)
         {
             _expandedPropertyName = expandedPropertyName;

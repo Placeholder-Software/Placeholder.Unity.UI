@@ -1,8 +1,8 @@
 ﻿using System;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Core.Validators;
+using Placeholder.Editor.UI.Core.Validators;
 using UnityEditor;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.PropertyValidators
+namespace Placeholder.Editor.UI.Editor.PropertyValidators
 {
     [PropertyValidator(typeof(IsOddAttribute))]
     public class IsOddValidator

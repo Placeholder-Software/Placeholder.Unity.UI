@@ -1,7 +1,7 @@
 ﻿using JetBrains.Annotations;
 using UnityEditor;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components.Addons.Validation
+namespace Placeholder.Editor.UI.Editor.Components.Addons.Validation
 {
     /// <summary>
     /// Generate error messages associated with the given UI component

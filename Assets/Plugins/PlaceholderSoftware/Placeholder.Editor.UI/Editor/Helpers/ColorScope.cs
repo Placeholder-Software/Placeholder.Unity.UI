@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Helpers
+namespace Placeholder.Editor.UI.Editor.Helpers
 {
     /// <summary>
     /// Set `GUI.color` for the duration of this scope

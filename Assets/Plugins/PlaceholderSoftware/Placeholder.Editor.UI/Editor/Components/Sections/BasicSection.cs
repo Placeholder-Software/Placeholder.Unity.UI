@@ -1,10 +1,10 @@
 ﻿using System;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Helpers;
 using JetBrains.Annotations;
+using Placeholder.Editor.UI.Editor.Helpers;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components.Sections
+namespace Placeholder.Editor.UI.Editor.Components.Sections
 {
     /// <summary>
     /// A simple section with a title. Cannot be collapsed.

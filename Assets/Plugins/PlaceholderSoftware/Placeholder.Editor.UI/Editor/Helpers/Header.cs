@@ -1,14 +1,14 @@
-﻿using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Style;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
+using Placeholder.Editor.UI.Editor.Style;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Helpers
+namespace Placeholder.Editor.UI.Editor.Helpers
 {
     /// <summary>
     /// Helper methods to draw various types of header. Rather than using these methods directly you should probably use Components/Sections.
     /// </summary>
-    internal static class Header
+    public static class Header
     {
         private static void CoreHeader(GUIContent title, out Rect rect, HeaderOptions options)
         {
@@ -70,7 +70,7 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Helper
             }
         }
 
-        internal struct HeaderOptions
+        public struct HeaderOptions
         {
             [CanBeNull] public GenericMenu DetailMenu;
             [CanBeNull] public string HelpUrl;
@@ -82,7 +82,7 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Helper
         /// </summary>
         /// <param name="title"></param>
         /// <param name="options"></param>
-        internal static void Simple(GUIContent title, HeaderOptions options = default)
+        public static void Simple(GUIContent title, HeaderOptions options = default)
         {
             CoreHeader(title, out _, options);
         }
@@ -96,7 +96,7 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Helper
         /// <param name="type"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        internal static void Toggle(GUIContent title, ref bool ticked, ref bool expanded, ToggleType type = ToggleType.Tick, HeaderOptions options = default)
+        public static void Toggle(GUIContent title, ref bool ticked, ref bool expanded, ToggleType type = ToggleType.Tick, HeaderOptions options = default)
         {
             CoreHeader(title, out var rect, options);
 
@@ -130,7 +130,7 @@ namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Helper
         /// <param name="folded"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        internal static bool Fold(GUIContent title, bool folded, HeaderOptions options = default)
+        public static bool Fold(GUIContent title, bool folded, HeaderOptions options = default)
         {
             CoreHeader(title, out var rect, options);
 

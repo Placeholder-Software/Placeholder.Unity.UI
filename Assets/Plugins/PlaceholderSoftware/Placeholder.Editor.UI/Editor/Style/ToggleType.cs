@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Style
+namespace Placeholder.Editor.UI.Editor.Style
 {
     public enum ToggleType
     {

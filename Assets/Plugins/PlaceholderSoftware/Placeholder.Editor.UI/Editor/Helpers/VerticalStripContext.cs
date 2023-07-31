@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Helpers
+namespace Placeholder.Editor.UI.Editor.Helpers
 {
     /// <summary>
     /// Draw a vertical strip of colour down the left side of a group of controls

@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Core.Validators;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Helpers;
-using Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.PropertyValidators;
 using JetBrains.Annotations;
+using Placeholder.Editor.UI.Core.Validators;
+using Placeholder.Editor.UI.Editor.Helpers;
+using Placeholder.Editor.UI.Editor.PropertyValidators;
 using UnityEditor;
 
-namespace Assets.Plugins.PlaceholderSoftware.Placeholder.Editor.UI.Editor.Components.Addons.Validation
+namespace Placeholder.Editor.UI.Editor.Components.Addons.Validation
 {
     /// <summary>
     /// Automatically generates error messages based on attributes attached to properties
