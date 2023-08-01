@@ -26,6 +26,11 @@ namespace Placeholder.Editor.UI.Editor.Components
         void OnEnable([NotNull] SerializedObject target);
 
         /// <summary>
+        /// Called when this component is disabled
+        /// </summary>
+        void OnDisable();
+
+        /// <summary>
         /// Render this component
         /// </summary>
         void Draw();

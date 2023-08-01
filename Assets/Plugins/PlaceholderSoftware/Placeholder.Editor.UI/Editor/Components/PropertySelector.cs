@@ -34,6 +34,12 @@ namespace Placeholder.Editor.UI.Editor.Components
                 component.Value.OnEnable(target);
         }
 
+        public void OnDisable()
+        {
+            foreach (var component in _components)
+                component.Value.OnDisable();
+        }
+
         public void Draw()
         {
             GetCurrentComponent()?.Draw();

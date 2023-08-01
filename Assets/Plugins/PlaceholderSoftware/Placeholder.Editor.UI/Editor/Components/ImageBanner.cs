@@ -29,6 +29,10 @@ namespace Placeholder.Editor.UI.Editor.Components
             _image = Resources.Load<Texture2D>(_resourcePath);
         }
 
+        public void OnDisable()
+        {
+        }
+
         public void Draw()
         {
             if (_image != null)

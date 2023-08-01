@@ -56,6 +56,11 @@ namespace Placeholder.Editor.UI.Editor.Components.Sections
             _root.OnEnable(target);
         }
 
+        public virtual void OnDisable()
+        {
+            _root.OnDisable();
+        }
+
         public void Draw()
         {
             using (new EditorGUILayout.VerticalScope(Expanded ? Styles.ContentOutline : GUIStyle.none))

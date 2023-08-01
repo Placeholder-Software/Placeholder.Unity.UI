@@ -26,6 +26,10 @@ namespace Placeholder.Editor.UI.Editor.Components
         {
         }
 
+        public void OnDisable()
+        {
+        }
+
         public void Draw()
         {
             EditorGUILayout.HelpBox(_message, _type);

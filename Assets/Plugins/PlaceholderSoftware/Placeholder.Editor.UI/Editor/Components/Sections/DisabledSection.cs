@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEditor;
+using static UnityEngine.GraphicsBuffer;
 
 namespace Placeholder.Editor.UI.Editor.Components.Sections
 {
@@ -28,6 +29,11 @@ namespace Placeholder.Editor.UI.Editor.Components.Sections
         {
             _control = target.FindProperty(_controlProperty);
             _child.OnEnable(target);
+        }
+
+        public void OnDisable()
+        {
+            _child.OnDisable();
         }
 
         public void Draw()

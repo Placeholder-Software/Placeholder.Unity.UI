@@ -24,6 +24,11 @@ namespace Placeholder.Editor.UI.Editor.Components.Sections
             _child.OnEnable(target);
         }
 
+        public void OnDisable()
+        {
+            _child.OnDisable();
+        }
+
         public void Draw()
         {
             _child.Draw();

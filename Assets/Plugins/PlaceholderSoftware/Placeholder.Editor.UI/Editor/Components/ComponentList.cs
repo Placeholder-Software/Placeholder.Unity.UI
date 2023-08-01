@@ -50,6 +50,12 @@ namespace Placeholder.Editor.UI.Editor.Components
                 component.OnEnable(target);
         }
 
+        public void OnDisable()
+        {
+            foreach (var component in _components)
+                component.OnDisable();
+        }
+
         public void Draw()
         {
             if (_strip.HasValue)

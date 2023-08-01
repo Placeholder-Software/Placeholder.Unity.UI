@@ -30,6 +30,10 @@ namespace Placeholder.Editor.UI.Editor.Components
             _property = target.FindProperty(_name);
         }
 
+        public void OnDisable()
+        {
+        }
+
         public void Draw()
         {
             if (_property == null)

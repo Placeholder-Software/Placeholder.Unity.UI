@@ -42,6 +42,12 @@ namespace Placeholder.Editor.UI.Editor
         }
 
         [UsedImplicitly]
+        protected virtual void OnDisable()
+        {
+            _root.OnDisable();
+        }
+
+        [UsedImplicitly]
         public override void OnInspectorGUI()
         {
             if (UseDefaultInspector())

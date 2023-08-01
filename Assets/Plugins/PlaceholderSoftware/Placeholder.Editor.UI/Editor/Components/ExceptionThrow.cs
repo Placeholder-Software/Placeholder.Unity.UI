@@ -17,6 +17,10 @@ namespace Placeholder.Editor.UI.Editor.Components
         {
         }
 
+        public void OnDisable()
+        {
+        }
+
         public void Draw()
         {
             throw new Exception("This is a test");
