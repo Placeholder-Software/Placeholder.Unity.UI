@@ -253,7 +253,7 @@ MonoBehaviour:
   Section2Collapsed: 0
   Section3Collapsed: 1
   Section4Enabled: 0
-  MuteSection: 0
+  MuteSection: 1
   SoloSection: 0
   BypassSection: 0
   A: 5.58

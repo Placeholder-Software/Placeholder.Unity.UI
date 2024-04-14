@@ -1,0 +1,8 @@
+{
+    "name": "software.placeholder.editor-ui",
+    "version": "1.0.0",
+    "displayName": "Placeholder Editor UI",
+    "unity": "2022.3",
+    "dependencies": {
+    }
+  }
