@@ -4,19 +4,19 @@ using UnityEngine;
 
 namespace Placeholder.Editor.UI.Editor
 {
-    public class BasePlaceholderEditor
+    public abstract class BasePlaceholderEditor
         : UnityEditor.Editor
     {
         private readonly IComponent _root;
 
-        public BasePlaceholderEditor([NotNull] params IComponent[] components)
+        protected BasePlaceholderEditor([NotNull] params IComponent[] components)
         {
             var root = new ComponentList();
             root.AddRange(components);
             _root = root;
         }
 
-        public BasePlaceholderEditor(IComponent root)
+        protected BasePlaceholderEditor(IComponent root)
         {
             _root = root;
         }
