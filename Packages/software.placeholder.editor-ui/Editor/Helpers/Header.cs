@@ -18,8 +18,28 @@ namespace Placeholder.Editor.UI.Editor.Helpers
             const int errorIconMarginX = 3;
             const int errorIconMarginY = 3;
 
+            // Draw background rect
             rect = GUILayoutUtility.GetRect(16f, barHeight, Styles.Header);
             GUI.Box(rect, title, Styles.Header);
+
+            // Overdraw progress bar
+            if (options.Progress > 0)
+            {
+                var t = Mathf.Clamp01(options.Progress);
+                var left = rect;
+                left.width *= t;
+
+                var savedColor = GUI.backgroundColor;
+                GUI.backgroundColor = options.ProgressColor;
+                try
+                {
+                    GUI.Box(left, title, Styles.Header);
+                }
+                finally
+                {
+                    GUI.backgroundColor = savedColor;
+                }
+            }
 
             var hasError = options.ErrorMessage != null;
 
@@ -75,6 +95,9 @@ namespace Placeholder.Editor.UI.Editor.Helpers
             [CanBeNull] public GenericMenu DetailMenu;
             [CanBeNull] public string HelpUrl;
             [CanBeNull] public string ErrorMessage;
+
+            public float Progress;
+            public Color ProgressColor;
         }
 
         /// <summary>

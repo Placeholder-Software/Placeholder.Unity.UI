@@ -4,6 +4,7 @@ using Placeholder.Editor.UI.Editor;
 using Placeholder.Editor.UI.Editor.Components;
 using Placeholder.Editor.UI.Editor.Components.Addons.GenericMenu;
 using Placeholder.Editor.UI.Editor.Components.Sections;
+using Placeholder.Editor.UI.Editor.Helpers;
 using Placeholder.Editor.UI.Editor.Style;
 using UnityEditor;
 using UnityEngine;
@@ -125,6 +126,17 @@ public class TestScriptEditor
             new DefaultInspectorSection()
         )
     {
+    }
+
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+        Header.Simple(new GUIContent("hello"), new Header.HeaderOptions()
+        {
+            Progress = 0.5f,
+            ProgressColor = Color.red,
+        });
     }
 
     private class Section4CopyPaste
