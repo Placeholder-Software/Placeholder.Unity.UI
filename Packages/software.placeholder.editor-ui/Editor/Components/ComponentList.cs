@@ -1,8 +1,9 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using Placeholder.Editor.UI.Editor.Helpers;
 using UnityEditor;
 using UnityEngine;
@@ -16,7 +17,7 @@ namespace Placeholder.Editor.UI.Editor.Components
         : IComponent, IEnumerable<IComponent>
     {
         private readonly Color? _strip;
-        private readonly GUIContent _foldout;
+        private readonly GUIContent? _foldout;
         private readonly List<IComponent> _components = new List<IComponent>();
 
         private bool _foldoutState;
@@ -27,17 +28,30 @@ namespace Placeholder.Editor.UI.Editor.Components
 
         public bool RequiresConstantRepaint => _components.Any(a => a.RequiresConstantRepaint);
 
-        public ComponentList([NotNull] params IComponent[] components)
+        private BasePlaceholderEditor? _editor;
+        public BasePlaceholderEditor? Editor
+        {
+            get => _editor;
+            set
+            {
+                _editor = value;
+
+                foreach (var component in _components)
+                    component.Editor = value;
+            }
+        }
+
+        public ComponentList(params IComponent[] components)
             : this(null, null, components)
         {
         }
 
-        public ComponentList(Color? strip = null, [NotNull] params IComponent[] components)
+        public ComponentList(Color? strip = null, params IComponent[] components)
             : this(strip, null, components)
         {
         }
 
-        public ComponentList(Color? strip = null, [CanBeNull] GUIContent foldout = null, [NotNull] params IComponent[] components)
+        public ComponentList(Color? strip = null, GUIContent? foldout = null, params IComponent[] components)
         {
             _strip = strip;
             _foldout = foldout;
@@ -107,14 +121,19 @@ namespace Placeholder.Editor.UI.Editor.Components
                     yield return property;
         }
 
-        public void AddRange([NotNull] IReadOnlyList<IComponent> component)
+        public void AddRange(IReadOnlyList<IComponent> components)
         {
-            _components.AddRange(component);
+            _components.AddRange(components);
+
+            foreach (var component in components)
+                component.Editor = Editor;
         }
 
-        public void Add([NotNull] IComponent component)
+        public void Add(IComponent component)
         {
             _components.Add(component);
+
+            component.Editor = Editor;
         }
 
         public IEnumerator<IComponent> GetEnumerator()

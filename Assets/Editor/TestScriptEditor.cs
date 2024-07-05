@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using Packages.software.placeholder.editor_ui.Editor.Components.Sections;
 using Placeholder.Editor.UI.Editor;
 using Placeholder.Editor.UI.Editor.Components;
 using Placeholder.Editor.UI.Editor.Components.Addons.GenericMenu;
@@ -17,6 +18,7 @@ public class TestScriptEditor
     public TestScriptEditor()
         : base(
             new ImageBanner("dissonance_logo"),
+            new DefaultInspectorSection(),
             new BasicSection(
                 new GUIContent("3D Preview Renderer"),
                 new DemoPreviewRenderer()
@@ -122,8 +124,7 @@ public class TestScriptEditor
                 new Property("E3")
             ) {
                 ToggleType = ToggleType.Solo,
-            },
-            new DefaultInspectorSection()
+            }
         )
     {
     }

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿#nullable enable
+
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using Placeholder.Editor.UI.Editor.Components.Addons.GenericMenu;
 using Placeholder.Editor.UI.Editor.Components.Addons.Validation;
@@ -34,17 +36,28 @@ namespace Placeholder.Editor.UI.Editor.Components.Sections
         /// <summary>
         /// Get the object which this section is editing
         /// </summary>
-        protected SerializedObject Target { get; private set; }
+        protected SerializedObject? Target { get; private set; }
+
+        private BasePlaceholderEditor? _editor;
+        public BasePlaceholderEditor? Editor
+        {
+            get => _editor;
+            set
+            {
+                _editor = value;
+                _root.Editor = value;
+            }
+        }
 
         public virtual bool IsVisible => true;
 
         public virtual bool RequiresConstantRepaint => _root.RequiresConstantRepaint;
 
-        [CanBeNull] public IGenericMenu HeaderMenu { get; set; }
-        [CanBeNull] public string HeaderUrl { get; set; }
-        [CanBeNull] public IValidation Validation { get; set; } = new AttributeValidation();
+        public IGenericMenu? HeaderMenu { get; set; }
+        public string? HeaderUrl { get; set; }
+        public IValidation? Validation { get; set; } = new AttributeValidation();
 
-        protected BaseSection([NotNull] GUIContent title, IComponent root)
+        protected BaseSection(GUIContent title, IComponent root)
         {
             Title = title;
             _root = root;
@@ -63,6 +76,9 @@ namespace Placeholder.Editor.UI.Editor.Components.Sections
 
         public void Draw()
         {
+            if (Target == null)
+                return;
+
             using (new EditorGUILayout.VerticalScope(Expanded ? Styles.ContentOutline : GUIStyle.none))
             {
                 Expanded = DrawHeader(
@@ -92,7 +108,7 @@ namespace Placeholder.Editor.UI.Editor.Components.Sections
         /// <param name="helpUrl"></param>
         /// <param name="errorMessage"></param>
         /// <returns>Return whether the rest of the section content should be drawn</returns>
-        protected abstract bool DrawHeader([NotNull] GUIContent title, [CanBeNull] GenericMenu menu, [CanBeNull] string helpUrl, [CanBeNull] string errorMessage);
+        protected abstract bool DrawHeader(GUIContent title, GenericMenu? menu, string? helpUrl, string? errorMessage);
 
         protected virtual void DrawContent()
         {

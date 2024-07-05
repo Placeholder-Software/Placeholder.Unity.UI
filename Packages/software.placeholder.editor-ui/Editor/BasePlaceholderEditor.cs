@@ -8,6 +8,7 @@ namespace Placeholder.Editor.UI.Editor
         : UnityEditor.Editor
     {
         private readonly IComponent _root;
+        private bool _defaultExpanded;
 
         protected BasePlaceholderEditor([NotNull] params IComponent[] components)
         {
@@ -19,6 +20,7 @@ namespace Placeholder.Editor.UI.Editor
         protected BasePlaceholderEditor(IComponent root)
         {
             _root = root;
+            _root.Editor = this;
         }
 
         public override bool RequiresConstantRepaint()
@@ -26,18 +28,10 @@ namespace Placeholder.Editor.UI.Editor
             return _root.RequiresConstantRepaint;
         }
 
-        /// <summary>
-        /// If this returns `true` the default inspector will be drawn
-        /// </summary>
-        /// <returns></returns>
-        protected virtual bool UseDefaultInspector()
-        {
-            return false;
-        }
-
         [UsedImplicitly]
         protected virtual void OnEnable()
         {
+            _root.Editor = this;
             _root.OnEnable(serializedObject);
         }
 
@@ -50,16 +44,9 @@ namespace Placeholder.Editor.UI.Editor
         [UsedImplicitly]
         public override void OnInspectorGUI()
         {
-            if (UseDefaultInspector())
-            {
-                base.OnInspectorGUI();
-            }
-            else
-            {
-                GUILayout.Space(4);
-                _root.Draw();
-                serializedObject.ApplyModifiedProperties();
-            }
+            GUILayout.Space(4);
+            _root.Draw();
+            serializedObject.ApplyModifiedProperties();
         }
     }
 }

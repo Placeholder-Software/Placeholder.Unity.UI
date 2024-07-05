@@ -45,7 +45,7 @@ namespace Placeholder.Editor.UI.Editor.Components.Sections
             _expandedProperty = target.FindProperty(_expandedPropertyName);
         }
 
-        protected override bool DrawHeader(GUIContent title, GenericMenu menu, string helpUrl, string errorMessage)
+        protected override bool DrawHeader(GUIContent title, GenericMenu? menu, string? helpUrl, string? errorMessage)
         {
             return Header.Fold(title, Expanded, new Header.HeaderOptions {
                 DetailMenu = menu,

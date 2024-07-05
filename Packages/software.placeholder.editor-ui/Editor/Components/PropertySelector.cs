@@ -17,8 +17,19 @@ namespace Placeholder.Editor.UI.Editor.Components
         private SerializedProperty? _discriminatorProperty;
 
         public bool RequiresConstantRepaint => GetCurrentComponent()?.RequiresConstantRepaint ?? false;
-
         public bool IsVisible => true;
+
+        private BasePlaceholderEditor? _editor;
+        public BasePlaceholderEditor? Editor
+        {
+            get => _editor;
+            set
+            {
+                _editor = value;
+                foreach (var component in _components)
+                    component.Value.Editor = value;
+            }
+        }
 
         public PropertySelector(string discriminatorProperty, IReadOnlyDictionary<int, IComponent> components)
         {
@@ -51,10 +62,7 @@ namespace Placeholder.Editor.UI.Editor.Components
                 return null;
 
             var value = _discriminatorProperty.intValue;
-            if (!_components.TryGetValue(value, out var component))
-                return null;
-
-            return component;
+            return _components.GetValueOrDefault(value);
         }
 
         public IEnumerable<SerializedProperty> GetChildProperties()

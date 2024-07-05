@@ -34,7 +34,7 @@ namespace Placeholder.Editor.UI.Editor.Components.Sections
             _enabled = target.FindProperty(_enabledPropertyName);
         }
 
-        protected override bool DrawHeader(GUIContent title, GenericMenu menu, string helpUrl, string errorMessage)
+        protected override bool DrawHeader(GUIContent title, GenericMenu? menu, string? helpUrl, string? errorMessage)
         {
             var expanded = Expanded;
             var enabled = Enabled;

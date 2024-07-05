@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿using Placeholder.Editor.UI.Editor.Components;
+using Placeholder.Editor.UI.Editor.Components.Sections;
+using UnityEditor;
+using UnityEngine;
 
-namespace Placeholder.Editor.UI.Editor.Components.Sections
+namespace Packages.software.placeholder.editor_ui.Editor.Components.Sections
 {
     /// <summary>
     /// A foldout section which draws the default Unity inspector within
@@ -8,8 +11,6 @@ namespace Placeholder.Editor.UI.Editor.Components.Sections
     public class DefaultInspectorSection
         : FoldoutSection
     {
-        private UnityEditor.Editor _editor;
-
         public DefaultInspectorSection()
             : base(new GUIContent("Default Inspector"), new ComponentList())
         {
@@ -17,10 +18,10 @@ namespace Placeholder.Editor.UI.Editor.Components.Sections
 
         protected override void DrawContent()
         {
-            if (_editor == null)
-                _editor = UnityEditor.Editor.CreateEditor(Target.targetObjects);
-            _editor.DrawDefaultInspector();
+            if (Editor == null)
+                EditorGUILayout.HelpBox("No editor instance!", MessageType.Error);
+            else
+                Editor.DrawDefaultInspector();
         }
     }
 }
-

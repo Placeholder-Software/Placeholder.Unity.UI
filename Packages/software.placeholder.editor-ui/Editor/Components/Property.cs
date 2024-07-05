@@ -18,6 +18,7 @@ namespace Placeholder.Editor.UI.Editor.Components
 
         public bool IsVisible => true;
         public bool RequiresConstantRepaint => false;
+        public BasePlaceholderEditor? Editor { get; set; }
 
         public Property(string name, string? label = null)
         {

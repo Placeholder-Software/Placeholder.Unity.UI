@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿#nullable enable
+
+using System.Collections.Generic;
 using UnityEditor;
 
 namespace Placeholder.Editor.UI.Editor.Components.Sections
@@ -13,6 +15,17 @@ namespace Placeholder.Editor.UI.Editor.Components.Sections
 
         public bool IsVisible => EditorApplication.isPlaying;
         public bool RequiresConstantRepaint => _child.RequiresConstantRepaint;
+
+        private BasePlaceholderEditor? _editor;
+        public BasePlaceholderEditor? Editor
+        {
+            get => _editor;
+            set
+            {
+                _editor = value;
+                _child.Editor = value;
+            }
+        }
 
         public PlaymodeSection(IComponent child)
         {

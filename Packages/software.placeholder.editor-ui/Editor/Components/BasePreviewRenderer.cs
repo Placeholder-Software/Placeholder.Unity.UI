@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -11,10 +13,11 @@ namespace Placeholder.Editor.UI.Editor.Components
     public abstract class BasePreviewRenderer
         : IComponent
     {
-        private PreviewRenderUtility _renderUtility;
+        private PreviewRenderUtility? _renderUtility;
 
         public bool IsVisible => true;
         public abstract bool RequiresConstantRepaint { get; }
+        public BasePlaceholderEditor? Editor { get; set; }
 
         /// <summary>
         /// The aspect ratio which the display will have. Width and height will be adapted to always have this ratio.
@@ -52,6 +55,9 @@ namespace Placeholder.Editor.UI.Editor.Components
 
         public void Draw()
         {
+            if (_renderUtility == null)
+                return;
+
             // Calculate the area to draw the preview in
             var width = EditorGUIUtility.currentViewWidth - 50;
             var height = width / AspectRatio;

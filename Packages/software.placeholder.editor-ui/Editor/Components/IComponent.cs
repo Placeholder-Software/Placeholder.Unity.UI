@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
+﻿#nullable enable
+
+using System.Collections.Generic;
 using UnityEditor;
 
 namespace Placeholder.Editor.UI.Editor.Components
@@ -23,7 +24,12 @@ namespace Placeholder.Editor.UI.Editor.Components
         /// Called when this component is enabled
         /// </summary>
         /// <param name="target">The object which is being edited</param>
-        void OnEnable([NotNull] SerializedObject target);
+        void OnEnable(SerializedObject target);
+
+        /// <summary>
+        /// Get or set the root editor which contains this component
+        /// </summary>
+        BasePlaceholderEditor? Editor { get; set; }
 
         /// <summary>
         /// Called when this component is disabled
@@ -39,6 +45,6 @@ namespace Placeholder.Editor.UI.Editor.Components
         /// Get all properties which are contained within this component
         /// </summary>
         /// <returns></returns>
-        [NotNull, ItemNotNull] IEnumerable<SerializedProperty> GetChildProperties();
+        IEnumerable<SerializedProperty> GetChildProperties();
     }
 }

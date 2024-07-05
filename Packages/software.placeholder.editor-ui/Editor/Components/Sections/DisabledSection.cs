@@ -1,7 +1,8 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 using System.Collections.Generic;
 using UnityEditor;
-using static UnityEngine.GraphicsBuffer;
 
 namespace Placeholder.Editor.UI.Editor.Components.Sections
 {
@@ -14,10 +15,21 @@ namespace Placeholder.Editor.UI.Editor.Components.Sections
         private readonly string _controlProperty;
         private readonly IComponent _child;
 
-        private SerializedProperty _control;
+        private SerializedProperty? _control;
 
         public bool IsVisible => true;
         public bool RequiresConstantRepaint => _child.RequiresConstantRepaint;
+
+        private BasePlaceholderEditor? _editor;
+        public BasePlaceholderEditor? Editor
+        {
+            get => _editor;
+            set
+            {
+                _editor = value;
+                _child.Editor = value;
+            }
+        }
 
         public DisabledSection(string controlProperty, IComponent child)
         {
@@ -38,13 +50,16 @@ namespace Placeholder.Editor.UI.Editor.Components.Sections
 
         public void Draw()
         {
+            if (_control == null)
+                return;
+
             using (new EditorGUI.DisabledScope(!_control.boolValue))
                 _child.Draw();
         }
 
         public IEnumerable<SerializedProperty> GetChildProperties()
         {
-            if (_control.boolValue)
+            if (_control is { boolValue: true })
                 return _child.GetChildProperties();
 
             return Array.Empty<SerializedProperty>();

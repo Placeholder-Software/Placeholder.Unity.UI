@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 
@@ -12,6 +14,7 @@ namespace Placeholder.Editor.UI.Editor.Components
     {
         public bool IsVisible => true;
         public bool RequiresConstantRepaint => false;
+        public BasePlaceholderEditor? Editor { get; set; }
 
         public void OnEnable(SerializedObject target)
         {
