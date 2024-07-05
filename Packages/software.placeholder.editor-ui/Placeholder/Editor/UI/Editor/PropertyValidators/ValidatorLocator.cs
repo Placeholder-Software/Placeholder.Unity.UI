@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -11,13 +13,13 @@ namespace Placeholder.Editor.UI.Editor.PropertyValidators
         private static bool _cacheDirty = true;
         private static readonly Dictionary<Type, IPropertyValidator> ValidatorsCache = new Dictionary<Type, IPropertyValidator>();
 
-        [CanBeNull] public static IPropertyValidator FindValidator<T>()
+        public static IPropertyValidator? FindValidator<T>()
             where T : Attribute
         {
             return FindValidator(typeof(T));
         }
 
-        [CanBeNull] public static IPropertyValidator FindValidator([NotNull] Type attrType)
+        public static IPropertyValidator? FindValidator([NotNull] Type attrType)
         {
             if (_cacheDirty)
             {

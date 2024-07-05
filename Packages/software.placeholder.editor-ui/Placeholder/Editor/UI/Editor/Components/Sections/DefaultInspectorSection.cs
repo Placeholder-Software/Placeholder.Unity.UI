@@ -3,7 +3,7 @@ using Placeholder.Editor.UI.Editor.Components.Sections;
 using UnityEditor;
 using UnityEngine;
 
-namespace Packages.software.placeholder.editor_ui.Editor.Components.Sections
+namespace Placeholder.Editor.UI.Editor.Components.Section
 {
     /// <summary>
     /// A foldout section which draws the default Unity inspector within

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
-using Packages.software.placeholder.editor_ui.Editor.Components.Sections;
 using Placeholder.Editor.UI.Editor;
 using Placeholder.Editor.UI.Editor.Components;
 using Placeholder.Editor.UI.Editor.Components.Addons.GenericMenu;
+using Placeholder.Editor.UI.Editor.Components.Section;
 using Placeholder.Editor.UI.Editor.Components.Sections;
 using Placeholder.Editor.UI.Editor.Helpers;
 using Placeholder.Editor.UI.Editor.Style;

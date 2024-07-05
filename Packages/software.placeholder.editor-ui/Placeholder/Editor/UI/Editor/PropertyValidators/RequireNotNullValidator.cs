@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 using JetBrains.Annotations;
 using Placeholder.Editor.UI.Core.Validators;
 using UnityEditor;
@@ -9,12 +11,12 @@ namespace Placeholder.Editor.UI.Editor.PropertyValidators
     public class RequireNotNullValidator
         : IPropertyValidator
     {
-        public string TryGetError(Attribute attribute, SerializedProperty property)
+        public string? TryGetError(Attribute attribute, SerializedProperty property)
         {
             return TryGetError(property, property.name);
         }
 
-        [CanBeNull] private string TryGetErrorArray([NotNull] SerializedProperty arrayProperty, string name)
+        private string? TryGetErrorArray([NotNull] SerializedProperty arrayProperty, string name)
         {
             for (var i = 0; i < arrayProperty.arraySize; i++)
             {
@@ -27,7 +29,7 @@ namespace Placeholder.Editor.UI.Editor.PropertyValidators
             return null;
         }
 
-        [CanBeNull] public string TryGetError(SerializedProperty property, string name)
+        public string? TryGetError(SerializedProperty property, string name)
         {
             if (property.propertyType == SerializedPropertyType.String)
                 if (property.stringValue != null)

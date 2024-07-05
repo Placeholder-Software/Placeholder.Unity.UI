@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable enable
+
+using System;
 using Placeholder.Editor.UI.Core.Validators;
 using UnityEditor;
 
@@ -8,7 +10,7 @@ namespace Placeholder.Editor.UI.Editor.PropertyValidators
     public class IsOddValidator
         : IPropertyValidator
     {
-        public string TryGetError(Attribute attribute, SerializedProperty property)
+        public string? TryGetError(Attribute attribute, SerializedProperty property)
         {
             double value;
 
