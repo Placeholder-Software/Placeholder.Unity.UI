@@ -112,7 +112,8 @@ namespace Placeholder.Editor.UI.Editor.Components.Sections
 
         protected virtual void DrawContent()
         {
-            _root.Draw();
+            if (_root.IsVisible)
+                _root.Draw();
         }
     }
 }
