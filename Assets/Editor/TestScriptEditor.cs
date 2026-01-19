@@ -135,8 +135,10 @@ public class TestScriptEditor
 
         Header.Simple(new GUIContent("hello"), new Header.HeaderOptions()
         {
-            Progress = 0.5f,
+            Progress = 0.1f,
             ProgressColor = Color.red,
+            ProgressMarker = 0.7f,
+            ProgressMarkerColor = Color.black,
         });
     }
 

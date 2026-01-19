@@ -6,6 +6,7 @@ namespace Placeholder.Editor.UI.Editor.Style
     public static class Styles
     {
         public static readonly GUIStyle Header;
+        public static readonly GUIStyle HeaderProgress;
         public static readonly GUIStyle HeaderTickToggle;
         public static readonly GUIStyle HeaderSoloToggle;
         public static readonly GUIStyle HeaderMuteToggle;
@@ -36,7 +37,14 @@ namespace Placeholder.Editor.UI.Editor.Style
                 contentOffset = new Vector2(20f, -2f)
             };
 
-            GUIStyle ToggleDimension(GUIStyle s)
+            HeaderProgress = new GUIStyle("ShurikenModuleTitle")
+            {
+                font = new GUIStyle("Label").font,
+                border = new RectOffset(4, 4, 2, 2),
+                fixedHeight = 22,
+            };
+
+            static GUIStyle ToggleDimension(GUIStyle s)
             {
                 s = new GUIStyle(s) {
                     fixedHeight = 14,

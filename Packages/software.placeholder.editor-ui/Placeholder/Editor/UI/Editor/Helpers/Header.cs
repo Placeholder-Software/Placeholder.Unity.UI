@@ -26,14 +26,34 @@ namespace Placeholder.Editor.UI.Editor.Helpers
             if (options.Progress > 0)
             {
                 var t = Mathf.Clamp01(options.Progress);
-                var left = rect;
-                left.width *= t;
+                var box = rect;
+                box.width *= t;
 
                 var savedColor = GUI.backgroundColor;
                 GUI.backgroundColor = options.ProgressColor;
                 try
                 {
-                    GUI.Box(left, title, Styles.Header);
+                    GUI.Box(box, title, Styles.Header);
+                }
+                finally
+                {
+                    GUI.backgroundColor = savedColor;
+                }
+            }
+
+            // Overdraw progress marker
+            if (options.ProgressMarker > 0)
+            {
+                var t = Mathf.Clamp01(options.ProgressMarker);
+                var box = rect;
+                box.xMin = rect.xMin + rect.width * t - 2;
+                box.width = 4;
+
+                var savedColor = GUI.backgroundColor;
+                GUI.backgroundColor = options.ProgressMarkerColor;
+                try
+                {
+                    GUI.Box(box, (Texture)null, Styles.HeaderProgress);
                 }
                 finally
                 {
@@ -92,12 +112,40 @@ namespace Placeholder.Editor.UI.Editor.Helpers
 
         public struct HeaderOptions
         {
+            /// <summary>
+            /// A menu at the right end of the header
+            /// </summary>
             [CanBeNull] public GenericMenu DetailMenu;
+
+            /// <summary>
+            /// A URL link (with question mark symbol) at the right end of the header
+            /// </summary>
             [CanBeNull] public string HelpUrl;
+
+            /// <summary>
+            /// An error icon with a popup error message
+            /// </summary>
             [CanBeNull] public string ErrorMessage;
 
+            /// <summary>
+            /// Sets progress bar width (0 to 1) - a bar filling the header from left to right
+            /// </summary>
             public float Progress;
+
+            /// <summary>
+            /// Sets progress bar color - a bar filling the header from left to right
+            /// </summary>
             public Color ProgressColor;
+
+            /// <summary>
+            /// Sets progress marker position (0 to 1) - a vertical line marking a point in the header
+            /// </summary>
+            public float ProgressMarker { get; set; }
+
+            /// <summary>
+            /// Sets progress market color - a vertical line marking a point in the header
+            /// </summary>
+            public Color ProgressMarkerColor { get; set; }
         }
 
         /// <summary>
